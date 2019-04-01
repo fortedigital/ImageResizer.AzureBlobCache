@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.AzureBlobCache", "ImageResizer.AzureBlobCache\ImageResizer.AzureBlobCache.csproj", "{C3E9F1E0-F40E-49E5-B054-B063A79A6B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.AzureBlobCache.Tests", "ImageResizer.AzureBlobCache.Tests\ImageResizer.AzureBlobCache.Tests.csproj", "{CB24ACD6-9097-435F-AB1A-DB60DCE663AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3E9F1E0-F40E-49E5-B054-B063A79A6B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3E9F1E0-F40E-49E5-B054-B063A79A6B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3E9F1E0-F40E-49E5-B054-B063A79A6B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E9F1E0-F40E-49E5-B054-B063A79A6B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB24ACD6-9097-435F-AB1A-DB60DCE663AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB24ACD6-9097-435F-AB1A-DB60DCE663AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB24ACD6-9097-435F-AB1A-DB60DCE663AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB24ACD6-9097-435F-AB1A-DB60DCE663AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Forte.ImageResizer.AzureBlobCache</id>
+        <version>$version$</version>
+        <description>ImageResizer plugin to keep resized images in cache (AzureBlobStorage)</description>
+        <title>Forte.ImageResizer.AzureBlobCache</title>
+        <authors>Forte_ Digital</authors>
+        <owners>$author$</owners>
+        <projectUrl>https://github.com/fortedigital/ImageResizer.AzureBlobCache</projectUrl>
+        <licenseUrl>https://github.com/fortedigital/ImageResizer.AzureBlobCache/blob/master/LICENSE</licenseUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    </metadata>
+</package>

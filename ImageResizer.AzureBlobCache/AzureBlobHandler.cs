@@ -38,7 +38,15 @@ namespace Forte.ImageResizer.AzureBlobCache
                 context.Response.ContentType = this.asyncResponse.EstimatedContentType;
             }
 
-            await this.data.CopyToAsync(context.Response.OutputStream);
+            try
+            {
+                await this.data.CopyToAsync(context.Response.OutputStream);
+            }
+            catch (HttpException e) when (e.ErrorCode == -2147023667)
+            {
+                //ignoring exception The Remote host closed the connection. The error code is 0x800704CD.
+                //it happens when request is aborted by client
+            }
 
             this.data.Dispose();
         }

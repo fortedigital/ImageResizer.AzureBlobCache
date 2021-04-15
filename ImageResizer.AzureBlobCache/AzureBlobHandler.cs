@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,7 +14,14 @@ namespace Forte.ImageResizer.AzureBlobCache
         private readonly IResponseArgs syncResponse;
         private readonly IAsyncResponsePlan asyncResponse;
         private readonly Stream data;
-        private static readonly int[] ignoredHttpExceptionCodes = {-2147023667, -2147024809, -2147023901};
+        private const uint ERROR_CONNECTION_INVALID = 0x800704CD;
+        private const uint ERROR_OPERATION_ABORTED = 0x800703E3;
+        private const uint ERROR_INVALID_PARAMETER = 0x80070057;
+
+        private static readonly uint[] ignoredHttpExceptionCodes = {ERROR_CONNECTION_INVALID, 
+            ERROR_OPERATION_ABORTED, 
+            ERROR_INVALID_PARAMETER,
+        };
 
         public AzureBlobHandler(IResponseArgs syncResponse, Stream data)
         {
@@ -44,14 +52,15 @@ namespace Forte.ImageResizer.AzureBlobCache
             {
                 await this.data.CopyToAsync(context.Response.OutputStream);
             }
-            catch (HttpException e) when (ignoredHttpExceptionCodes.Contains(e.ErrorCode))
+            catch (HttpException e) when (ignoredHttpExceptionCodes.Contains((uint) e.ErrorCode))
             {
                 //ignoring exception The Remote host closed the connection. The error code is X.
-                //where X might be: 0x800703E3, 0x80070057, 0x800704CD
                 //it happens when request is aborted by client
             }
-
-            this.data.Dispose();
+            finally
+            {
+                this.data.Dispose();                
+            }
         }
     }
 }
